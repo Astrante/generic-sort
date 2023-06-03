@@ -1,18 +1,31 @@
-# Salesforce DX Project: Next Steps
+# Generic Sort
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## Description
+This library provides a powerful and flexible sorting mechanism for collections in the Apex programming language. It allows you to sort complex objects based on multiple criteria, enabling you to easily customize the sorting behavior according to your specific requirements.
 
-## How Do You Plan to Deploy Your Changes?
+## Usage Example
+Consider a scenario where you have a list of Person objects and you want to sort them based on various criteria. Here's an example of how you can achieve that using this library:
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+```Apex
+List<Person> people = new List<Person>{
+        new Person('Alex', 'Adams', 20, null),
+        new Person('Alex', null, 20, Gender.FEMALE),
+        new Person('Alex', 'Zimmerman', 20, Gender.FEMALE),
+        new Person('Alex', 'Adams', 20, Gender.FEMALE)
+};
 
-## Configure Your Salesforce DX Project
+List<SortCriterion> criteria = new List<SortCriterion>{
+        new NumericDirectionalSortCriterion('age', true, false),
+        new EnumCustomOrderSortCriterion('gender', new List<Object>{Gender.FEMALE, Gender.MALE}, true),
+        new StringDirectionalSortCriterion('firstName', true, false),
+        new StringDirectionalSortCriterion('lastName', false, true)
+};
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+Collection.sort(people, criteria);
+```
 
-## Read All About It
+In this example, we have a list of Person objects and a list of SortCriterion objects. Each SortCriterion represents a specific sorting criterion such as numeric sorting, custom enum ordering, or string sorting. By specifying the desired sorting criteria and calling the Collection.sort method, the library sorts the people list accordingly.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+## Class Diagram
+![GenericSort.png](doc%2FGenericSort.png)
+https://lucid.app/lucidchart/597a198e-7b8e-4fc7-8617-4fcaf75c7a9a/edit?viewport_loc=-515%2C-286%2C3538%2C1993%2C0_0&invitationId=inv_5c0ddc1e-689d-4e6e-a6d0-dc3e460c8c9d![GenericSort.png
