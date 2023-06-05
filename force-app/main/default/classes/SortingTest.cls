@@ -1,5 +1,12 @@
+/**
+ * Description
+ *
+ * @author: Olya Baranova
+ * @date: 05/06/2023
+ *
+ */
 @IsTest
-private class StringDirectionalSortCriterionTest {
+private class SortingTest {
     @IsTest
     public static void testScenario1() {
         List<Person> people = getPeople();
@@ -12,7 +19,7 @@ private class StringDirectionalSortCriterionTest {
         return new Scenario(
                 new List<SortCriterion>{
                         new NumericDirectionalSortCriterion('age', true, false),
-                        new EnumCustomOrderSortCriterion('gender', new List<Object>{ Gender.FEMALE, Gender.MALE}, true),
+                        new EnumCustomOrderSortCriterion('gender', new List<Object>{Gender.FEMALE, Gender.MALE}, true),
                         new StringDirectionalSortCriterion('firstName', true, false),
                         new StringDirectionalSortCriterion('lastName', false, true)
                 },
@@ -52,7 +59,7 @@ private class StringDirectionalSortCriterionTest {
     private static Scenario getScenario2() {
         return new Scenario(
                 new List<SortCriterion>{
-                        new EnumCustomOrderSortCriterion('gender', new List<Object>{ Gender.MALE, Gender.FEMALE}, true),
+                        new EnumCustomOrderSortCriterion('gender', new List<Object>{Gender.MALE, Gender.FEMALE}, true),
                         new StringDirectionalSortCriterion('firstName', false, false),
                         new StringDirectionalSortCriterion('lastName', true, true),
                         new NumericDirectionalSortCriterion('age', true, false)
@@ -147,5 +154,6 @@ private class StringDirectionalSortCriterionTest {
         MALE,
         FEMALE
     }
+
 
 }

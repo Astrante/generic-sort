@@ -30,7 +30,7 @@ global class Item implements Comparable {
         return 0;
     }
 
-    public Object getValue(String fieldName) {
+    private Object getValue(String fieldName) {
         return this.fieldValueMap.get(fieldName);
     }
 }
