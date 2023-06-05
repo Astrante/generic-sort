@@ -1,4 +1,4 @@
-global class Item implements Comparable {
+public class Item implements Comparable {
     public Object sourceObject { get; set; }
     public List<SortCriterion> criteria { get; set; }
 
@@ -17,7 +17,7 @@ global class Item implements Comparable {
         this.criteria = criteria;
     }
 
-    global Integer compareTo(Object compareTo) {
+    public Integer compareTo(Object compareTo) {
         Item compareToEmp = (Item) compareTo;
         // Циклом по всем полям
         for (SortCriterion sc : this.criteria) {
