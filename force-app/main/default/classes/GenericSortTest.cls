@@ -6,7 +6,7 @@
  *
  */
 @IsTest
-private class SortingTest {
+private class GenericSortTest {
     @IsTest
     public static void testScenario1() {
         List<Person> people = getPeople();
