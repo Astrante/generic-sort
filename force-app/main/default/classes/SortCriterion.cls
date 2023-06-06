@@ -1,4 +1,4 @@
-public abstract class SortCriterion implements SortableCriterion {
+public abstract class SortCriterion {
     public String fieldName { get; set; }
     public Boolean nullsFirst { get; protected set; }
 
